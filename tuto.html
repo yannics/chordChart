@@ -1,0 +1,324 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="favicon.ico" rel="shortcut icon" />
+<title>Chord Chart</title>
+<style type="text/css">
+ .code {font-family:monospace;}
+ pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+}
+td	 { font-size:12pt; font-family:monospace;  text-align:center; height:25px; width:50px; vertical-align:middle;}
+@font-face {
+    font-family: 'Chord4tab';
+    src: url('fonts/chord4tab.eot');
+	src: local('☺'), url('fonts/chord4tab.woff') format('woff'), url('fonts/chord4tab.ttf') format('truetype'), url('fonts/chord4tab.svg') format('svg');
+}
+.cc { font-size:22pt; font-family:Chord4tab;  text-align:center; vertical-align:bottom;}
+.nn { }
+.in {width:20px;}
+.xt { opacity:0; /*display:none;*/ position:fixed; bottom:5px; right:5px; }
+</style>
+</head>
+<body>
+<div>
+	<p id="top" style="font-family:monospace;font-size:26px;font-weight:bold;text-align: center;">CHORD CHART</p>
+	<p style="font-family:monospace;font-size:13px;font-weight:normal;text-align: center;"><span style="font-family:monospace;font-size:22px;">Tutoriel</span><br/><br/><a href="index.php">Application en ligne</a><br/>par <a href="mailto:by.cmsc@gmail.com"><b>Yann Ics</b></a><br/><br/>2015 &ndash; 2019</p>
+</div>
+<br/><br/><br/>
+
+<a href="#syntax">1 - Syntaxe</a><br/>
+<a href="#grid">1-1 - Les grilles d'accords</a><br/>
+<a href="#diagram">1-2 - Les diagrammes d'accords</a><br/>
+<a href="#dlc">2 - Diwar Les Coet</a><br/>
+<a href="#chords">3 - Liste d'accords</a><br/>
+<br/>
+<p><b>Chord Chart</b> est une application en ligne dans le cadre du logiciel libre proposant <span style="text-decoration: underline;">une</span> possibilité de réaliser des grilles d'accords concises et de façon intuitive, répondant ainsi à un besoin que la plupart des logiciels de gravure musicale ne développent pas ou trop peu. Le principe est de coder selon une syntaxe spécifique qui est exposée ici et qui peut être modulée dans certains cas avec du code HTML.
+<br/><b>Chord Chart</b> offre la possibilité de télécharger le résultat au format <em>Encapsulated PostScript</em> (EPS) permettant de la sorte l'insertion de grilles dans les environnements logiciels tels que <a href="http://lilypond.org/doc/v2.18/Documentation/notation/graphic" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')" >Lilypond</a> ou <a href="https://latex-project.org" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')" >Latex</a> avec l'extension <a href="https://ctan.org/pkg/graphicx">graphicx</a> &ndash; <span style="font-family:monospace;">\usepackage{graphicx}</span>.
+<br/>À toutes fins utiles, le code source est disponible sur le gestionnaire <a href="https://github.com/yannics/chordChart"  onclick="return confirm('Vous êtes sur le point de quitter cette page.\nConfirmer votre choix.')" >github</a>.<br/> Merci pour toutes contributions et soutiens.</p>
+<br/>
+<HR>
+
+<p id="syntax" style="font-size:22px;font-weight:bold;">Syntaxe &nbsp;&nbsp;<a href="#top" style="font-size:22px;font-weight:normal;text-decoration:none">[&uarr;]</a></p>
+Le principe repose sur la création d'un tableau HTML avec pour taille des cellules &ndash; par défaut &ndash; le <span style="font-family:monospace;">width</span> et le <span style="font-family:monospace;">height</span> du formulaire. La hauteur ne concerne que les cases de la grille et s'adapte dans les autres cas en fonction du contenu.
+<HR>
+
+<p id="grid" style="font-size:18px;font-weight:bold;"><span style="text-decoration: underline;">Les grilles d'accords</span> &nbsp;&nbsp;<a href="#top" style="font-size:18px;font-weight:normal;text-decoration:none">[&uarr;]</a></p>
+<img src="img/grid.png" alt="" width="350">
+<p>&rbarr; La première ligne est dédiée à l'indication de mesure (code tableau 1) et au tempo (code tableau 2).</p>
+
+<p><span style="text-decoration: underline;">Tableau 1</span>: indication de mesure.</p>
+<TABLE border="0">
+  <TR><TD class="nn">\44</TD><TD><img src="img/44.png" alt="" height=35 /></TD><TD class="nn">\44d</TD><TD><img src="img/44d.png" alt="" height=35 /></TD></TR>
+  <TR><TD class="nn">\22</TD><TD><img src="img/22.png" alt="" height=35 /></TD><TD class="nn">\22d</TD><TD><img src="img/22d.png" alt="" height=35 /></TD></TR>
+  <TR><TD class="nn">\34</TD><TD><img src="img/34.png" alt="" height=35 /></TD><TD class="nn">\68</TD><TD><img src="img/68.png" alt="" height=35 /></TD></TR>
+  <TR><TD class="nn">\32</TD><TD><img src="img/32.png" alt="" height=35 /></TD><TD class="nn">\64</TD><TD><img src="img/64.png" alt="" height=35 /></TD></TR>
+  <TR><TD class="nn">\24</TD><TD><img src="img/24.png" alt="" height=35 /></TD><TD class="nn">\18</TD><TD><img src="img/18.png" alt="" height=35 /></TD></TR>
+  <TR><TD class="nn">\128</TD><TD><img src="img/128.png" alt="" height=35 /></TD><TD class="nn">\38</TD><TD><img src="img/38.png" alt="" height=35 /></TD></TR>
+</TABLE>
+<br/>
+
+<p><span style="text-decoration: underline;">Tableau 2</span>: indication de tempo (exemple pour un tempo de 60 à la noire, coder <span style="font-family:monospace;">"tempo=4,=60"</span>).</p>
+<TABLE border="0">
+  <TR><TD class="nn">1</TD><TD><img src="img/1.png" alt="" height=25 /></TD><TD class="nn">1d</TD><TD><img src="img/1d.png" alt="" height=25 /></TD></TR>
+  <TR><TD class="nn">2</TD><TD><img src="img/2.png" alt="" height=25 /></TD><TD class="nn">2d</TD><TD><img src="img/2d.png" alt="" height=25 /></TD></TR>
+  <TR><TD class="nn">4</TD><TD><img src="img/4.png" alt="" height=25 /></TD><TD class="nn">4d</TD><TD><img src="img/4d.png" alt="" height=25 /></TD></TR>
+  <TR><TD class="nn">8</TD><TD><img src="img/8.png" alt="" height=25 /></TD><TD class="nn">8d</TD><TD><img src="img/8d.png" alt="" height=25 /></TD></TR>
+</TABLE>
+<br/>
+
+<p>&rbarr; Chaque mesure &ndash; ou temps &ndash; compris dans une case est délimitée par une paire de <span style="font-family:monospace;">"|"</span> avec un premier argument renvoyant au type de case désiré (voir tableau 3).</p>
+
+<p><span style="text-decoration: underline;">Tableau 3</span>: dénominations des cases.</p>
+<TABLE border="0">
+  <TR><TD class="nn">\a</TD><TD><img src="img/a.png" alt="" width=50 height=25 /></TD><TD class="nn">\la</TD><TD><img src="img/la.png" alt="" width=50 height=25 /></TD><TD class="nn">\fa</TD><TD><img src="img/fa.png" alt="" width=50 height=25 /></TD><TD class="nn">\ra</TD><TD><img src="img/ra.png" alt="" width=50 height=25 /></TD></TR>
+  <TR><TD class="nn">\b</TD><TD><img src="img/b.png" alt="" width=50 height=25 /></TD><TD class="nn">\lb</TD><TD><img src="img/lb.png" alt="" width=50 height=25 /></TD><TD class="nn">\fb</TD><TD><img src="img/fb.png" alt="" width=50 height=25 /></TD><TD class="nn">\rb</TD><TD><img src="img/rb.png" alt="" width=50 height=25 /></TD></TR>
+  <TR><TD class="nn">\c</TD><TD><img src="img/c.png" alt="" width=50 height=25 /></TD><TD class="nn">\lc</TD><TD><img src="img/lc.png" alt="" width=50 height=25 /></TD><TD class="nn">\fc</TD><TD><img src="img/fc.png" alt="" width=50 height=25 /></TD><TD class="nn">\rc</TD><TD><img src="img/rc.png" alt="" width=50 height=25 /></TD></TR>
+  <TR><TD class="nn">\d</TD><TD><img src="img/d.png" alt="" width=50 height=25 /></TD><TD class="nn">\ld</TD><TD><img src="img/ld.png" alt="" width=50 height=25 /></TD><TD class="nn">\fd</TD><TD><img src="img/fd.png" alt="" width=50 height=25 /></TD><TD class="nn">\rd</TD><TD><img src="img/rd.png" alt="" width=50 height=25 /></TD></TR>
+  <TR><TD class="nn">\e</TD><TD><img src="img/e.png" alt="" width=50 height=25 /></TD><TD class="nn">\le</TD><TD><img src="img/le.png" alt="" width=50 height=25 /></TD><TD class="nn">\fe</TD><TD><img src="img/fe.png" alt="" width=50 height=25 /></TD><TD class="nn">\re</TD><TD><img src="img/re.png" alt="" width=50 height=25 /></TD></TR>
+  <TR><TD class="nn">\f</TD><TD><img src="img/f.png" alt="" width=50 height=25 /></TD><TD class="nn">\lf</TD><TD><img src="img/lf.png" alt="" width=50 height=25 /></TD><TD class="nn">\ff</TD><TD><img src="img/ff.png" alt="" width=50 height=25 /></TD><TD class="nn">\rf</TD><TD><img src="img/rf.png" alt="" width=50 height=25 /></TD></TR>
+  <TR><TD class="nn">\g</TD><TD><img src="img/g.png" alt="" width=50 height=25 /></TD><TD class="nn">\lg</TD><TD><img src="img/lg.png" alt="" width=50 height=25 /></TD><TD class="nn">\fg</TD><TD><img src="img/fg.png" alt="" width=50 height=25 /></TD><TD class="nn">\rg</TD><TD><img src="img/rg.png" alt="" width=50 height=25 /></TD></TR>
+  <TR><TD class="nn">\cl</TD><TD><img src="img/cl.png" alt="" width=50 height=25 /></TD><TD class="nn">\cr</TD><TD><img src="img/cr.png" alt="" width=50 height=25 /></TD><TD class="nn">\ct</TD><TD><img src="img/ct.png" alt="" width=50 height=25 /></TD><TD class="nn">\cb</TD><TD><img src="img/cb.png" alt="" width=50 height=25 /></TD></TR>
+</TABLE>
+<br/>
+
+<p>&rbarr; Les lignes de reprise alternatives numérotées sont codées de la façon suivante: <span style="font-family:monospace;">"rep=1@"</span> pour la première reprise et <span style="font-family:monospace;">"rep=2@"</span> pour la deuxième reprise.</p>
+<p>&rbarr; Il est possible d'utiliser la syntaxe HTML (comme <span style="font-family:monospace;">"&lt;sup>&lt;/sup>"</span> pour exposant et <span style="font-family:monospace;">"&lt;sub>&lt;/sub>"</span> pour indice), notamment pour qualifier certains accords.</p>
+<p>&rbarr; Pour ajuster les accords dans les cases, utiliser le symbol <span style="font-family:monospace;">"_"</span> &ndash; qui est l'équivalent de l'entité HTML <span style="font-family:monospace;">"&amp;nbsp;".</span></p>
+<p>&rbarr; Chaque ligne est délimitée par un retour à la ligne.</p>
+<p>&rbarr; Pour annoter les cases, écrire le code au-dessus ou au-dessous de la case suivant la syntaxe suivante:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:monospace;">"|!"</span> début de l'annotation (pour une police de type monospace de taille fixe utiliser <span style="font-family:monospace;">"|?");</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:monospace;">"2>"</span> nombre de cases à fusionner (correspondant dans ce cas à l'attribut HTML <span style="font-family:monospace;">"colspan=2");</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rbarr; Le texte à insérer (possibilité d'utiliser la syntaxe HTML);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rbarr; Il est possible d'insérer des lignes de type crescendo (exemple <span style="font-family:monospace;">"cres=100px"</span>) et decrescendo (exemple <span style="font-family:monospace;">"dim=200px"</span>) dont la longueur est exprimée en nombre de pixels;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:monospace;">"+"</span> délimitation des cases;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:monospace;">"!|"</span> fin de l'annotation.</p>
+<p>&rbarr; Il est possible d'insérer un symbole séparateur de section en codant sur une ligne <span style="font-family:monospace;">"|//|"</span>.</p>
+<br/>
+
+<p><span style="text-decoration: underline;">Tableau 4</span>: correspondance des symboles musicaux (<span style="font-family:monospace;">class="Chord4tab"</span>).</p>
+<TABLE border="0">
+  <TR><TD class="nn">1</TD><TD class="cc">1</TD><TD class="in"></TD><TD class="nn">2</TD><TD class="cc">2</TD><TD class="in"></TD><TD class="nn">3</TD><TD class="cc">3</TD></TR>
+  <TR><TD class="nn">4</TD><TD class="cc">4</TD><TD class="in"></TD><TD class="nn">5</TD><TD class="cc">5</TD><TD class="in"></TD><TD class="nn">6</TD><TD class="cc">6</TD></TR>
+  <TR><TD class="nn">7</TD><TD class="cc">7</TD><TD class="in"></TD><TD class="nn">8</TD><TD class="cc">8</TD><TD class="in"></TD><TD class="nn">9</TD><TD class="cc">9</TD></TR>
+  <TR><TD class="nn">w</TD><TD class="cc">w</TD><TD class="in"></TD><TD class="nn">A</TD><TD class="cc">A</TD><TD class="in"></TD><TD class="nn">s</TD><TD class="cc">s</TD></TR>
+  <TR><TD class="nn">W</TD><TD class="cc">W</TD><TD class="in"></TD><TD class="nn">B</TD><TD class="cc">B</TD><TD class="in"></TD><TD class="nn">t</TD><TD class="cc">t</TD></TR>
+  <TR><TD class="nn">#</TD><TD class="cc">#</TD><TD class="in"></TD><TD class="nn">C</TD><TD class="cc">C</TD><TD class="in"></TD><TD class="nn">U</TD><TD class="cc">U</TD></TR>
+  <TR><TD class="nn">X</TD><TD class="cc">X</TD><TD class="in"></TD><TD class="nn">D</TD><TD class="cc">D</TD><TD class="in"></TD><TD class="nn">z</TD><TD class="cc">z</TD></TR>
+  <TR><TD class="nn">n</TD><TD class="cc">n</TD><TD class="in"></TD><TD class="nn">E</TD><TD class="cc">E</TD><TD class="in"></TD><TD class="nn">y</TD><TD class="cc">y</TD></TR>
+  <TR><TD class="nn">v</TD><TD class="cc">v</TD><TD class="in"></TD><TD class="nn">F</TD><TD class="cc">F</TD><TD class="in"></TD><TD class="nn">Z</TD><TD class="cc">Z</TD></TR>
+  <TR><TD class="nn">o</TD><TD class="cc">o</TD><TD class="in"></TD><TD class="nn">G</TD><TD class="cc">G</TD><TD class="in"></TD><TD class="nn">Y</TD><TD class="cc">Y</TD></TR>
+  <TR><TD class="nn">%</TD><TD class="cc">%</TD><TD class="in"></TD><TD class="nn">a</TD><TD class="cc">a</TD><TD class="in"></TD><TD class="nn">u</TD><TD class="cc">u</TD></TR>
+  <TR><TD class="nn">p</TD><TD class="cc">p</TD><TD class="in"></TD><TD class="nn">b</TD><TD class="cc">b</TD><TD class="in"></TD><TD class="nn">P</TD><TD class="cc">P</TD></TR>
+  <TR><TD class="nn">h</TD><TD class="cc">h</TD><TD class="in"></TD><TD class="nn">c</TD><TD class="cc">c</TD><TD class="in"></TD><TD class="nn">H</TD><TD class="cc">H</TD></TR>
+  <TR><TD class="nn">i</TD><TD class="cc">i</TD><TD class="in"></TD><TD class="nn">d</TD><TD class="cc">d</TD><TD class="in"></TD><TD class="nn">I</TD><TD class="cc">I</TD></TR>
+  <TR><TD class="nn">j</TD><TD class="cc">j</TD><TD class="in"></TD><TD class="nn">e</TD><TD class="cc">e</TD><TD class="in"></TD><TD class="nn">J</TD><TD class="cc">J</TD></TR>
+  <TR><TD class="nn">k</TD><TD class="cc">k</TD><TD class="in"></TD><TD class="nn">f</TD><TD class="cc">f</TD><TD class="in"></TD><TD class="nn">K</TD><TD class="cc">K</TD></TR>
+  <TR><TD class="nn">l</TD><TD class="cc">l</TD><TD class="in"></TD><TD class="nn">g</TD><TD class="cc">g</TD><TD class="in"></TD><TD class="nn">L</TD><TD class="cc">L</TD></TR>
+  <TR><TD class="nn">O</TD><TD class="cc">O</TD><TD class="in"></TD><TD class="nn">Q</TD><TD class="cc">Q</TD><TD class="in"></TD><TD class="nn">S</TD><TD class="cc">S</TD></TR>
+</TABLE>
+<br/>
+<HR>
+
+<p id="diagram" style="font-size:18px;font-weight:bold;"><span style="text-decoration: underline;">Les diagrammes d'accords</span> (pour guitare)&nbsp;&nbsp;<a href="#top" style="font-size:18px;font-weight:normal;text-decoration:none">[&uarr;]</a></p>
+<img src="img/diag.png" alt="" width="350">
+
+<p>&rbarr; Le diagramme est définit par un système de coordonnées et de mots clefs à l'intérieur d'un champ délimité par des accolades.</p>
+
+<p>&rbarr; Le système de coordonnées indique la position des points &ndash; <em>position-sur-le-manche+numéro-de-la-corde</em> &ndash; ou la position d'un barré &ndash; <span style="font-family:monospace;">I</span><em>+nombre-de-cordes-barrées+position-sur-le-manche</em> &ndash; selon le schéma ci-dessous.</p>
+
+<pre>
+    1   2   3   4   5   6
+    +---+---+---+---+---+
+    |   |   |   |   |   |
+  A |   |   |   |   |   | A
+    |   |   |   |   |   |
+    +---+---+---+---+---+
+    |   |   |   |   |   |
+  B |   |   |   |   |   | B
+    |   |   |   |   |   |
+    +---+---+---+---+---+
+    |   |   |   |   |   |
+  C |   |   |   |   |   | C
+    |   |   |   |   |   |
+    +---+---+---+---+---+
+    |   |   |   |   |   |
+  D |   |   |   |   |   | D
+    |   |   |   |   |   |
+    +---+---+---+---+---+
+    1   2   3   4   5   6
+</pre>
+
+<p>&rbarr; Les mots clefs définissent une des particularités suivantes:</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rbarr; la position de l'accord sur le manche peut être précisé en ajoutant entre parenthèses le numéro de la frette sur le manche suivi de la position dans le diagramme;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rbarr; les cordes à vides sont définit par <span style="font-family:monospace;">O</span><em>+numéro-de-la-corde</em> (la position d'un éventuel capodastre peut être définit par le numéro de la frette sur le manche entre crochet);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rbarr; les cordes non jouées sont définit par <span style="font-family:monospace;">X</span><em>+numéro-de-la-corde</em>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rbarr; <span style="font-family:monospace;">LS</span> = position « paysage » (la position « portrait » est définit par défaut).
+</p>
+
+<p>&rbarr; Le nom de l'accord peut être ajouté en tapant <span style="font-family:monospace;">":"</span> après les accolades suivi de la dénomination de l'accord selon les symboles définit au tableau 4 (à l'exception du symbole de séparation <span style="font-family:monospace;">"/"</span> qui doit être remplacer par <span style="font-family:monospace;">","</span>).</p>
+<p><span style="text-decoration: underline;"><b>Attention</b>, le nom de l'accord du diagramme ne supporte pas la syntaxe HTML.</span></p>
+
+<p><b>Note</b> : pour nommer les accords de guitare à partir de la position des doigts sur le manche, j'ai relevé deux sites proposant de le faire en ligne: <a href="https://www.zikinf.com/articles/pratique-musicale/trouver-nom-accord-guitare.php" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')" ><code>zikinf.com</code></a> et <a href="http://www.boiteachansons.net/Outils/accords-inverses.php" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')" ><code>boiteachansons.net</code ></a>.</p>
+
+<br/>
+<HR>
+<p id="dlc" style="font-size:22px;font-weight:bold;">Diwar Les Coet &nbsp;&nbsp;<a href="#top" style="font-size:22px;font-weight:normal;text-decoration:none">[&uarr;]</a></p>
+Illustration des possibilités qu'offrent l'application <b>Chord Chart</b> sur l'une de mes compositions.
+<HR>
+<p style="font-size:18px;font-weight:bold;">Résultat</p>
+<img src="img/DLC.png" alt="" width="600">
+<br/>
+<HR>
+<p style="font-size:18px;font-weight:bold;">Codage</p>
+<pre>
+-✂---------------
+\24 tempo=2, ca 63
+|! 1> !|
+|\la Gm||\a %||\a Ew||\a Gm||\a Ew||\a D||\a Ew rep=1@||\ra D|
+|\cl ||\x ||\x ||\x ||\x ||\x ||\a D rep=2@||\a Gm|
+|\la D||\a %||\a Gm||\ra %|
+|\a Ew||\a %||\a Gm||\a %||\a Ew||\a D||\a Gm||\fa %|
+|! 1> _ !|
+|//|
+|? 4>_VAR. 1!|
+|! 1> {LS (3 B) I6B D2 D3}:Gm + 1> {LS (6 B) I6B X1 I4D}:Ew + 1> {LS (5 B) I6B X1 I4D}:D + 1> {LS (3 B) I6B X1 D3 D4 C5}:Cm + 1> {LS (9 C) X1 X6 C2 D3 B4 D5}:F#Y7 + 1> {LS (3 C) X1 C2 D3 B4 D5}:CY7 + 1> {LS (5 D) X1 D2 D3 B4 D5}:Gm6 + 1> {LS (10 B) B1 X2 B3 C4 C5 X6}:D7#5 !|
+|! 1> _ !|
+|\la Gm||\a %||\a Ew||\a Gm||\a Ew||\a D||\a Cm rep=1@||\ra D|
+|\cl ||\x ||\x ||\x ||\x ||\x ||\a F#Y7 rep=2@||\a Gm|
+|! 2> __tremolo + 2> __sim. !|
+|\la CY7||\a %||\a Gm6||\ra %|
+|! 2> __cres=75px _dim=75px + 2> __cres=75px _dim=75px  !|
+|! 1> !|
+|\a Ew||\a %||\a Gm||\a %||\a Ew||\a D7#5||\a Gm||\fa h|
+|! 1> _ !|
+|//|
+|? 4>_VAR. 2!|
+|! 1> {LS (3 B) B1 D2 D3 X4 X5 X6}:G(m) + 1> {LS (3 A) X6 X5 X4 A1 D2 C3}:Ew,g + 1> {LS (5 C) C1 D2 B3 X4 X5 X6}:AY + 1> {LS (5 C) C1 C2 B3 X4 X5 X6}:D,a + 1> {LS (5 D) D1 B2 C3 X4 X5 X6}:AY + 1> {LS (6 C) C1 B2 B3 X4 X5 X6}:Gm,bw + 1> {LS (6 B) X1 X6 I6B I4D}:Ew + 1> {LS (3 B) I6B D2 D3}:Gm !|
+|! 1> _ !|
+|\la G(m)||\a %||\a Ew/g||\a %||\a %||\a AY||\a % rep=1@||\ra D/a|
+|\cl ||\x ||\x ||\x ||\x ||\x ||\a AY rep=2@||\a h|
+|\la AY||\a %||\a Gm/bw||\ra %|
+|\a Ew||\a h||\a Gm||\a h||\a Gm/bw||\a %||\a %||\fa %|
+|! 4> + 4> __p cres=295px fff !|
+|! 1> _ !|
+|//|
+|? 4>_VAR. 3!|
+|! 4> _Capodastre 5e case !|
+|! 1> {X1 LS X2 O3 (7 B) [5] B4 C5 A6}:Gm + 1> {LS (7 B) X1 X2 O3 [5] C4 C5 O6}:Ew(7)w5 + 1> {LS (7 B) [5] X1 O2 I4B}:D(6) + 1> {LS (7 B) [5] X1 X2 O3 O4 C5 C6}:Cm + 1> {LS (7 B) [5] X1 O2 B3 C4 B5 C6}:AY7,d + 1> {LS (12 D) [5] X1 O2 D3 D4 C5 B6}:Gm + 1> {LS (12 D) [5] X1 X2 O3 D4 C5 C6}:Ew + 1> {LS (12 D) [5] X1 X2 O3 D4 C5 B6}:Gm !|
+|! 1> _ !|
+|\la Gm||\a %||\a Ew(7)w5||\a Gm||\a Ew(7)w5||\a D(6)||\a Cm rep=1@||\ra D(6)|
+|\cl ||\x ||\x ||\x ||\x ||\x ||\a D(6) rep=2@||\a Gm|
+|\la AY7/d||\a %||\a Gm||\ra %|
+|\a Ew||\a %||\a Gm||\a %||\a Ew(7)w5||\a D(6)||\a Gm||\fa %|
+|! 1> _ !|
+|//|
+|? 4>_VAR. 4!|
+|! 4> _Capodastre 3e case !|
+|! 1> {LS (5 B) [3] O1 B2 B3 O4 O5 O6}:Gm + 1> {LS (7 C) [3] O1 B2 D3 D4 O5 O6}:Ew7M,g + 1> {LS (5 B) [3] B2 D3 D4 O5 O6}:Ds4 + 1> {LS (5 B) [3] X1 O2 B3 B4 O5 O6}:Cs2 + 1> {LS (7 B) [3] C1 D2 B3 B4 O5 O6}:D7U11 + 1> {LS (5 B) [3] C2 D3 D4 O5 O6}:Am7w5 + 1> {LS (5 B) [3] B1 B2 D3 D4 O5 O6}:Ds4,a + 1> {LS (12 D) [3] O1 D2 D3 C4 O5 O6}:D,g !|
+|! 1> _ !|
+|\la Gm||\a %||\a Ew7M/g||\a Gm||\a Ew7M/g||\a Ds4 rep=1@||\a Cs2||\ra D7U11|
+|\cl ||\x ||\x ||\x ||\x ||\a Am7w5 rep=2@||\a Ds4/a||\a Gm|
+|\la D/g||\a %||\a G(m)||\ra %|
+|\a Ew7M/g||\a %||\a G(m)||\a %||\a Ew7M/g||\a Gm/d5||\a Gm||\fa G(m)|
+|! 2> _ + 1> {LS (12 D) [3] O1 B2 D3 D4 O5 O6}:G(m) + 2> _ + 1> {LS (12 D) [3] B1 D2 D3 O4 O5 O6}:Gm,d5 !|
+-✂---------------
+</pre>
+<br/>
+<HR>
+<p id="chords" style="font-size:22px;font-weight:bold;">Liste d'accords &nbsp;&nbsp;<a href="#top" style="font-size:22px;font-weight:normal;text-decoration:none">[&uarr;]</a></p>
+Cette liste d'accords a été réalisé sur l'initiative de <a href="http://lilypond-french-users.1298960.n2.nabble.com/template/NamlServlet.jtp?macro=user_nodes&user=57851" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')" >Vincent Gay</a>. Il est à noter que la dénomination est de l'ordre du conventionnelle et peut varier suivant les habitudes de chacun (par exemple ∆ versus M7, ø versus m7b5, ° versus <em>dim</em>, etc...).
+<HR>
+<p style="font-size:18px;font-weight:bold;">Les triades</p><br/>
+<img src="img/623843.png" alt="" width="600">
+<br/><br/>
+<pre>
+-✂---------------
+|! 1> + 4> __Les plus courantes !|
+|\x ||\a C ||\a Cm ||\a C° ||\a C&lt;sup>s4&lt;/sup> |
+|! 1> Nom + 1> &lt;center>Do&lt;/center> + 1> &lt;center>Do mineur&lt;/center> + 1> &lt;center>Do diminué&lt;/center> + 1> &lt;center>Do sus4&lt;/center> !|
+|? 1> Notes + 1> &lt;center>C E G&lt;/center> + 1> &lt;center>C Eb G &lt;/center> + 1> &lt;center>C Eb Gb&lt;/center> + 1> &lt;center>C F G&lt;/center> !|
+|? 1> ChordChart + 1> &lt;center>C&lt;/center> + 1> &lt;center>Cm&lt;/center> + 1> &lt;center>C°&lt;/center> + 1> &lt;center>C&amp;lt;sup\&amp;gt;s4\&amp;lt;/sup\&amp;gt;&lt;/center> !|
+|! 1> _ !|
+|! 1> + 1> __Autres... !|
+|\x ||\a C+||\a C&lt;sup>w5&lt;/sup>||\a Cm+||\a C&lt;sup>s2&lt;/sup> |
+|! 1> Nom + 1> &lt;center>Do augmenté&lt;/center> + 1> &lt;center>Do 5&lt;sup>b&lt;/sup>&lt;/center> + 1> &lt;center>Do mineur aug.&lt;/center> + 1> &lt;center>Do sus2&lt;/center> !|
+|? 1> Notes + 1> &lt;center>C E G#&lt;/center> + 1> &lt;center>C E Gb &lt;/center> + 1> &lt;center>C Eb G#&lt;/center> + 1> &lt;center>C D G&lt;/center> !|
+|? 1> ChordChart + 1> &lt;center>C&amp;#43;&lt;/center> + 1> &lt;center>C&amp;lt;sup\&amp;gt;w5\&amp;lt;/sup\&amp;gt;&lt;/center> + 1> &lt;center>Cm&amp;#43;&lt;/center> + 1> &lt;center>C&amp;lt;sup\&amp;gt;s2\&amp;lt;/sup\&amp;gt;&lt;/center> !|
+-✂---------------
+</pre>
+<br/>
+<HR>
+<p style="font-size:18px;font-weight:bold;">Les accords majeur sixième </p><br/>
+<img src="img/125120.png" alt="" width="370">
+<br/><br/>
+<pre>
+-✂---------------
+|\x ||\a C6 ||\a C6&lt;sup>9&lt;/sup> |
+|! 1> Nom||! 1> &lt;center>Do 6&lt;/center> + 1> &lt;center>Do 6/9&lt;/center> !|
+|? 1> Notes + 1> &lt;center>C E G A&lt;/center> + 1> &lt;center>C E G A D &lt;/center> !|
+|? 1> ChordChart + 1> &lt;center>C6&lt;/center> + 1> &lt;center>C6&amp;lt;sup\&amp;gt;9\&amp;lt;/sup\&amp;gt;&lt;/center> !|
+-✂---------------
+</pre>
+<br/>
+<HR>
+<p style="font-size:18px;font-weight:bold;">Les accords majeur septième</p><br/>
+<img src="img/722230.png" alt="" width="600">
+<br/><br/>
+<pre>
+-✂---------------
+|! 1> + 4> __Les plus courants&lt;/ br>&nbsp; !|
+|\x ||\a Cv ||\a Cv&lt;sup>9&lt;/sup> ||\a Cv&lt;sup>#11&lt;/sup> ||\a Cv&lt;sup>13&lt;/sup> |
+|! 1> Nom + 1> &lt;center>Do majeur 7&lt;/center> + 1> &lt;center>Do majeur 9&lt;/center> + 1> &lt;center>Do majeur #11&lt;/center> + 1> &lt;center>Do majeur 13&lt;/center> !|
+|? 1> Notes + 1> &lt;center>C E G B&lt;/center> + 1> &lt;center>C E G B D&lt;/center> + 1> &lt;center>C E G B D F#&lt;/center> ||? 1> &lt;center>C E G B D A&lt;/center> !|
+|? 1> ChordChart + 1> &lt;center>Cv&lt;/center> + 1> &lt;center>Cv&amp;lt;sup\&amp;gt;9\&amp;lt;/sup\&amp;gt;&lt;/center> + 1> &lt;center>Cv&amp;lt;sup\&amp;gt;#11\&amp;lt;/sup\&amp;gt;&lt;/center> + 1> &lt;center>Cv&amp;lt;sup\&amp;gt;13\&amp;lt;/sup\&amp;gt;&lt;/center> !|
+-✂---------------
+</pre>
+<br/>
+<HR>
+<p style="font-size:18px;font-weight:bold;">Les accords septième de dominante</p><br/>
+<img src="img/998263.png" alt="" width="600">
+<br/><br/>
+<pre>
+-✂---------------
+|! 1> + 4> __Les plus courants !|
+|\x ||\a C7 ||\a C9 ||\a C7&lt;sup>w9&lt;/sup> ||\a C7&lt;sup>s4&lt;/sup> |
+|! 1> Nom + 1> &lt;center>Do 7&lt;/center> + 1> &lt;center>Do 9&lt;/center> + 1> &lt;center>Do 7 b9&lt;/center> + 1> &lt;center>Do 7 sus4&lt;/center> !|
+|? 1> Notes + 1> &lt;center>C E G Bb&lt;/center> + 1> &lt;center>C E G Bb D&lt;/center> + 1> &lt;center>C E G Bb Db&lt;/center> + 1> &lt;center>C F G Bb&lt;/center> !|
+|? 1> ChordChart + 1> &lt;center>C7&lt;/center> + 1> &lt;center>C9&lt;/center> + 1> &lt;center>C7&amp;lt;sup\&amp;gt;w9\&amp;lt;/sup\&amp;gt;&lt;/center> + 1> &lt;center>C7&amp;lt;sup\&amp;gt;s4\&amp;lt;/sup\&amp;gt;&lt;/center> !|
+|! 1> _ !|
+|! 1> + 4> __Quelques autres !|
+|\x ||\a C7&lt;sup>#9&lt;/sup> ||\a C7&lt;sup>#11&lt;/sup> ||\a C7&lt;sup>w13&lt;/sup> ||\a C7&lt;sup>#9w13&lt;/sup> |
+|! 1> Nom + 1> &lt;center>Do 7 #9&lt;/center> + 1> &lt;center>Do 7 #11&lt;/center> + 1> &lt;center>Do 7 b13&lt;/center> + 1> &lt;center>Do 7 #9b13&lt;/center> !|
+|? 1> Notes + 1> &lt;center>C E G Bb D#&lt;/center> + 1> &lt;center>C E G Bb D F#&lt;/center> + 1> &lt;center>C E G Bb D Ab&lt;/center> + 1> &lt;center>C E G Bb D# Ab&lt;/center> !|
+|? 1> ChordChart + 1> &lt;center>C7&amp;lt;sup\&amp;gt;#9\&amp;lt;/sup\&amp;gt;&lt;/center> + 1> &lt;center>C7&amp;lt;sup\&amp;gt;#11\&amp;lt;/sup\&amp;gt;&lt;/center> + 1> &lt;center>C7&amp;lt;sup\&amp;gt;w13\&amp;lt;/sup\&amp;gt;&lt;/center> + 1> &lt;center>C7&amp;lt;sup\&amp;gt;#9w13\&amp;lt;/sup\&amp;gt;&lt;/center> !|
+-✂---------------
+</pre>
+<br/>
+<HR>
+<p style="font-size:18px;font-weight:bold;">Les accords diminués et augmentés</p><br/>
+<img src="img/621233.png" alt="" width="600">
+<br/><br/>
+<pre>
+-✂---------------
+|! 1> + 4> __Les plus courants !|
+|\x ||\a C°&lt;sup>7&lt;/sup> ||\a Co ||\a C7+ ||\a C7&lt;sup>t&lt;/sup> |
+|! 1> Nom + 1> &lt;center>Do diminué&lt;/center> + 1> &lt;center>Do demi-diminué&lt;/center> + 1> &lt;center>Do 7 augmenté&lt;/center> + 1> &lt;center>Do 7 altéré&lt;/center> !|
+|? 1> Notes + 1> &lt;center>C Eb Gb Bbb (A)&lt;/center> + 1> &lt;center>C Eb Gb Bb&lt;/center> + 1> &lt;center>C E G# Bb&lt;/center> + 1> &lt;center>C E Gb Bb Db Ab&lt;/center> !|
+|? 1> ChordChart + 1> &lt;center>C°&amp;lt;sup\&amp;gt;7\&amp;lt;/sup\&amp;gt;&lt;/center> + 1> &lt;center>Co&lt;/center> + 1> &lt;center>C7&amp;#43;&lt;/center> + 1> &lt;center>C7&amp;lt;sup\&amp;gt;t\&amp;lt;/sup\&amp;gt;&lt;/center> !|
+-✂---------------
+</pre>
+
+<br/>
+<HR>
+<br/>
+<a href="#top" style="font-size:18px;font-weight:normal;text-decoration:none">[&uarr;]</a>&nbsp;&nbsp;23/01/2019 &ndash; <a style="font-family:monospace;" href="https://yannics.github.io">https://yannics.github.io</a>
+<br/><br/>
+</body>
