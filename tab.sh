@@ -26,7 +26,7 @@ if [[ "$first" != "|" ]]; then
     fi
     
     tempo=`echo $mes | awk -F 'tempo=|,' '{print $2}'`
-    tempoimg=`echo "<img class=\"cap\" src=\"http:\/\/mus-ics.net\/chordChart\/img\/$tempo.png\" alt=\"$tempo\" height=\"$ee\">"`
+    tempoimg=`echo "<img class=\"cap\" src=\"img\/$tempo.png\" alt=\"$tempo\" height=\"$ee\">"`
     echo $mes | sed 's/annot=/<span class=\"annotfont\" style=\"font-size:zzz;\">/g' | sed "s/zzz/$as/g" | sed 's/@/<\/span>/g' | sed "s/tempo.*\,/$tempoimg/g"
     echo "</CAPTION><tr>"
 fi
@@ -47,7 +47,7 @@ cat $1 | while read s
 		 if [[ -n "$rep" ]]; then
 		     k=`echo $[ 1 + $[ RANDOM % 10000 ]]`
 		     /usr/bin/convert img/rep.png -font Arial -pointsize 190 -draw "gravity NorthWest fill black text 100,100 '$rep'" $imguser/$k.png
-		     repimg="url(chordChart/$imguser/$k.png),"
+		     repimg="url($imguser/$k.png),"
 		     chord=`echo $chord | sed 's/rep=.*@//g'`
 		 else
 		     repimg=""
