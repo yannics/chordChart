@@ -26,7 +26,7 @@ td	 { font-size:12pt; font-family:monospace;  text-align:center; height:25px; wi
 <body>
 <div>
 	<p id="top" style="font-family:monospace;font-size:26px;font-weight:bold;text-align: center;">CHORD CHART</p>
-	<p style="font-family:monospace;font-size:13px;font-weight:normal;text-align: center;"><span style="font-family:monospace;font-size:22px;">Tutoriel</span><br/><br/><a href="index.php">Application en ligne</a><br/>par <a href="mailto:by.cmsc@gmail.com"><b>Yann Ics</b></a><br/><br/>2015 &ndash; 2019</p>
+	<p style="font-family:monospace;font-size:13px;font-weight:normal;text-align: center;"><span style="font-family:monospace;font-size:22px;">Tutoriel</span><br/><br/><a href="index.php">Application en ligne</a><br/>par <a href="mailto:by.cmsc@gmail.com"><b>Yann Ics</b></a><br/><br/>2015 &ndash; 2020</p>
 </div>
 <br/><br/><br/>
 
@@ -37,8 +37,18 @@ td	 { font-size:12pt; font-family:monospace;  text-align:center; height:25px; wi
 <a href="#chords">3 - Liste d'accords</a><br/>
 <br/>
 <p><b>Chord Chart</b> est une application en ligne dans le cadre du logiciel libre proposant <span style="text-decoration: underline;">une</span> possibilité de réaliser des grilles d'accords concises et de façon intuitive, répondant ainsi à un besoin que la plupart des logiciels de gravure musicale ne développent pas ou trop peu. Le principe est de coder selon une syntaxe spécifique qui est exposée ici et qui peut être modulée dans certains cas avec du code HTML.
-<br/><b>Chord Chart</b> offre la possibilité de télécharger le résultat au format <em>Encapsulated PostScript</em> (EPS) permettant de la sorte l'insertion de grilles dans les environnements logiciels tels que <a href="http://lilypond.org/doc/v2.18/Documentation/notation/graphic" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')" >Lilypond</a> ou <a href="https://latex-project.org" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')" >Latex</a> avec l'extension <a href="https://ctan.org/pkg/graphicx">graphicx</a> &ndash; <span style="font-family:monospace;">\usepackage{graphicx}</span>.
-<br/>À toutes fins utiles, le code source est disponible sur le gestionnaire <a href="https://github.com/yannics/chordChart"  onclick="return confirm('Vous êtes sur le point de quitter cette page.\nConfirmer votre choix.')" >github</a>.<br/> Merci pour toutes contributions et soutiens.</p>
+<br/><b>Chord Chart</b> offre la possibilité de télécharger le résultat au format <em>Encapsulated PostScript</em> (EPS) permettant de la sorte l'insertion de grilles dans les environnements logiciels tels que <a href="http://lilypond.org/doc/v2.18/Documentation/notation/graphic" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')" >Lilypond</a> ou <a href="https://latex-project.org" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')" >LaTex</a> avec l'extension <a href="https://ctan.org/pkg/graphicx">graphicx</a> &ndash; <span style="font-family:monospace;">\usepackage{graphicx}</span>. <br/>À noter que le format EPS peut être converti en utilisant des outils en ligne tels que <a href="https://convertio.co/fr/eps-png/" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')"><code>convertio.co</code></a> ou <a href="https://www.zamzar.com/fr/convert/eps-to-png/" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')"><code>zamzar.com</code></a>.
+<br/>
+Ou bien encore en ligne de commande avec <a href="https://imagemagick.org/" onclick="return confirm('Vous êtes sur le point de quitter ce site.\nConfirmer votre choix.')">ImageMagick</a>.
+<br/>
+<br/>
+Par exemple:</p>
+<pre>
+ $ convert cc.eps cc.png
+ $ convert header.png cc.png footer.png -append out.png
+</pre>
+<p>
+À toutes fins utiles, le code source est disponible sur le gestionnaire <a href="https://github.com/yannics/chordChart"  onclick="return confirm('Vous êtes sur le point de quitter cette page.\nConfirmer votre choix.')" >GitHub</a>.<br/> Merci pour toutes contributions et soutiens.</p>
 <br/>
 <HR>
 
@@ -319,6 +329,6 @@ Cette liste d'accords a été réalisé sur l'initiative de <a href="http://lily
 <br/>
 <HR>
 <br/>
-<a href="#top" style="font-size:18px;font-weight:normal;text-decoration:none">[&uarr;]</a>&nbsp;&nbsp;23/01/2019 &ndash; <a style="font-family:monospace;" href="https://yannics.github.io">https://yannics.github.io</a>
+<a href="#top" style="font-size:18px;font-weight:normal;text-decoration:none">[&uarr;]</a>&nbsp;&nbsp;16/03/2020 &ndash; <a style="font-family:monospace;" href="https://yannics.github.io">https://yannics.github.io</a>
 <br/><br/>
 </body>
