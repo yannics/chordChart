@@ -145,7 +145,7 @@ function convertCentToAlpha($num)
 }
 $meta = convertCentToAlpha($boxwidth).convertCentToAlpha($boxheight).convertCentToAlpha($diagram).convertCentToAlpha($chordsize);
 $rename = $timestamp_actuel.$meta;
-echo '<div class="downloadbutton"><a href="download.php?file='.$rename.'.eps"><button style="cursor:pointer;">Download eps</button></a>
+echo '<div class="downloadbutton"><a href="download.php?file='.$rename.'.png"><button style="cursor:pointer;">Download png</button></a>
 <form style=" text-align: center;">
 <br/>
   <input type="button" style= "cursor:pointer" value="Edit" title="" class="button" onclick="history.back()">
@@ -161,7 +161,7 @@ echo '<div class="downloadbutton"><a href="download.php?file='.$rename.'.eps"><b
 <?php
 // Get the content that is in the buffer and put it in your file //
 file_put_contents($rename.'.html', ob_get_contents());
-shell_exec('./toeps.sh '.$rename.'.html'); 
+shell_exec('./topng.sh '.$rename.'.html'); 
 shell_exec('./limit.sh 50 50'); 
 shell_exec('rm '.$timestamp_actuel);
 shell_exec('rm busy');

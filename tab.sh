@@ -9,6 +9,9 @@ ee=$4
 asi=`echo $(($ee*2))`
 as=`echo $(($asi/3))`
 
+imd='/opt/local/bin/convert'
+#imd='/usr/bin/convert'
+
 imguser=$5
 # width diagram
 wd=$6
@@ -46,7 +49,7 @@ cat $1 | while read s
 		 rep=`echo "$chord" | awk -F 'rep=|@' '{print $2}'`
 		 if [[ -n "$rep" ]]; then
 		     k=`echo $[ 1 + $[ RANDOM % 10000 ]]`
-		     /usr/bin/convert img/rep.png -font Arial -pointsize 190 -draw "gravity NorthWest fill black text 100,100 '$rep'" $imguser/$k.png
+		     $imd img/rep.png -font Arial -pointsize 190 -draw "gravity NorthWest fill black text 100,100 '$rep'" $imguser/$k.png
 		     repimg="url($imguser/$k.png),"
 		     chord=`echo $chord | sed 's/rep=.*@//g'`
 		 else
@@ -58,8 +61,6 @@ cat $1 | while read s
 		     if [[ $fortest == "!" ]]
 		     then
 
-#/usr/bin/convert online
-#/opt/local/bin/convert offline
 #---------------------------------
 			 echo $aaa | perl -pe 'BEGIN{$/=\1}if($l>0&&/\s/){$_="-"}elsif($_ eq"{"){$l++}elsif($_ eq"}"){$l--}' | tr ' ' '\n' > tmp$1
 			 while read name
@@ -69,7 +70,7 @@ cat $1 | while read s
 			     d1=$imgwt1
 			     d1+="x60"
 			     if [[ -n "$imgwt1" ]]; then
-			     /usr/bin/convert -size $d1 xc:white -stroke gray45 -strokewidth 4 -draw "line 0,30 $imgwt1,15" -draw "line 0,30 $imgwt1,45" $imguser/$imgwt1-cres.png
+			     $imd -size $d1 xc:white -stroke gray45 -strokewidth 4 -draw "line 0,30 $imgwt1,15" -draw "line 0,30 $imgwt1,45" $imguser/$imgwt1-cres.png
 			     fi
 			     
 			     imgwt2=`echo $name | awk -F 'dim|px' '{print $2}' | sed 's/=//g'`
@@ -77,7 +78,7 @@ cat $1 | while read s
 			     d2=$imgwt2
 			     d2+="x60"
 			     if [[ -n "$imgwt2" ]]; then
-			     /usr/bin/convert -size $d2 xc:white -stroke gray45 -strokewidth 4 -draw "line 0,15 $imgwt2,30" -draw "line 0,45 $imgwt2,30" $imguser/$imgwt2-dim.png
+			     $imd -size $d2 xc:white -stroke gray45 -strokewidth 4 -draw "line 0,15 $imgwt2,30" -draw "line 0,45 $imgwt2,30" $imguser/$imgwt2-dim.png
 			     fi
 			     
 			     chordname=`echo $name | awk -F ':' '{print $2}' | sed 's/\&nbsp;/\ /g'`

@@ -14,11 +14,11 @@ do
 done
 
 Cnteps=0
-for line in `ls -dt *.eps`
+for line in `ls -dt *.png`
 do
     if [[ $Cnteps -ge $limitf ]]
     then
-	rootname=$(basename $line .eps)
+	rootname=$(basename $line .png)
 	rm $rootname.html
 	rm $line
     fi
