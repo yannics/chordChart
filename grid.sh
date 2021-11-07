@@ -1,9 +1,9 @@
 #!/bin/bash
 
-imd='/opt/local/bin/convert'
-#imd='/usr/bin/convert'
-imdc='/opt/local/bin/composite'
-#imdc='/usr/bin/composite'
+#imd='/opt/local/bin/convert'
+imd='/usr/bin/convert'
+#imdc='/opt/local/bin/composite'
+imdc='/usr/bin/composite'
 
 imguser=$1
 iii=`basename $1`

@@ -9,8 +9,8 @@ ee=$4
 asi=`echo $(($ee*2))`
 as=`echo $(($asi/3))`
 
-imd='/opt/local/bin/convert'
-#imd='/usr/bin/convert'
+#imd='/opt/local/bin/convert'
+imd='/usr/bin/convert'
 
 imguser=$5
 # width diagram
