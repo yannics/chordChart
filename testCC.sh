@@ -16,6 +16,5 @@ testHead $thefile boxwidth 5
 testHead $thefile boxheight 6
 testHead $thefile diagram 7
 testHead $thefile chordsize 8
-testHead $thefile date 9
 
 echo 1

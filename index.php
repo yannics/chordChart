@@ -23,7 +23,7 @@
 <body>
 <div>
 	<p style="font-family:monospace;font-size:26px;font-weight:bold;text-align: center;">CHORD CHART</p>
-	<p style="font-family:monospace;font-size:13px;font-weight:normal;text-align: center;">Online application<br/>by <a href="mailto:by.cmsc@gmail.com"><b>Yann Ics</b></a><br/><br/>2015 &ndash; 2021</p>
+	<p style="font-family:monospace;font-size:13px;font-weight:normal;text-align: center;">Online application<br/>by <a href="mailto:by.cmsc@gmail.com"><b>Yann Ics</b></a><br/><br/>2015 &ndash; 2022</p>
 </div>
 
 <br/>
