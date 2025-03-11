@@ -1,83 +1,83 @@
 <!doctype html>
 <head>
-<title>Chord chart</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" media="screen" type="text/css" href="style.css" />
-<link href="favicon.ico" rel="shortcut icon" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="jquery.tabSlideOut.v1.3.js"></script>
-<style>
-#loadingSpinnerBackground {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height:100%;
-    width:100%;
-    cursor: not-allowed;
-    opacity: 0.5;
-    background: #000000 url('img/transparent-loader-gif-13.gif') center no-repeat;
-    z-index: 99;
-}
-</style>
+  <title>Chord chart</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" media="screen" type="text/css" href="style.css" />
+  <link href="favicon.ico" rel="shortcut icon" />
+  <style>
+    #loadingSpinnerBackground {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height:100%;
+	width:100%;
+	cursor: not-allowed;
+	opacity: 0.5;
+	background: #000000 url('img/transparent-loader-gif-13.gif') center no-repeat;
+	z-index: 99;
+    }
+  </style>
 </head>
 <body>
-<div>
-	<p style="font-family:monospace;font-size:26px;font-weight:bold;text-align: center;">CHORD CHART</p>
-	<p style="font-family:monospace;font-size:13px;font-weight:normal;text-align: center;">Online application<br/>by <a href="mailto:by.cmsc@gmail.com"><b>Yann Ics</b></a><br/><br/>2015 &ndash; 2022</p>
-</div>
-
-<br/>
-
-<?php
-$actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-?>
-<div id="formtext">
-        <form method="post" action="" enctype="multipart/form-data">
-        <p style="text-align: left;">fill in the needed fields in the following form :</p>
-    		<p>
-    		<label for="title">Title : </label>
-       			<input type="text" value="<?php if (isset($_POST['title'])) { echo $_POST['title']; } else { echo "Somewhere over the rainbow"; } ?>" name="title" id="title" style="background-color:transparent;width:190px;font-family:monospace;font-size:12px;color:#505050" >
- 				<br />
- 			</p>
- 			<p>
-       		<label for="subtitle">Subtitle : </label>
-       			<input type="text" value="<?php if (isset($_POST['subtitle'])) { echo $_POST['subtitle']; } ?>" name="subtitle" id="subtitle" style="background-color:transparent;width:190px;font-family:monospace;font-size:12px;color:#505050" >
- 				<br />
-  			</p>
-  			<p>
-       		<label for="composer">Composer : </label>
-       			<input type="text" value="<?php if (isset($_POST['composer'])) { echo $_POST['composer']; } else { echo ""; } ?>" name="composer" id="composer" style="background-color:transparent;width:190px;font-family:monospace;font-size:12px;color:#505050" >
- 				<br />
-  			</p>
-  			<p>
-       		<label for="comment">Comment : </label>
-       			<input type="text" value="<?php if (isset($_POST['comment'])) { echo $_POST['comment']; } else { echo "[ grille manouche ]"; } ?>" name="comment" id="comment" style="background-color:transparent;width:190px;font-family:monospace;font-size:12px;color:#505050" >
- 				<br /><img src="img/point.png" alt="" style="height:1px;">
-  			</p>
-  			<p>
-       		<label for="width">Width : </label>
-       			<input type="text" value="<?php if (isset($_POST['boxwidth'])) { echo $_POST['boxwidth']; } else { echo "100"; } ?>" name="boxwidth" id="boxwidth" style="background-color:transparent;font-family:monospace;font-size:12px;color:#505050" required/>
- 				<br />
-  			</p>
-  			<p>
-       		<label for="height">Height : </label>
-       			<input type="text" value="<?php if (isset($_POST['boxheight'])) { echo $_POST['boxheight']; } else { echo "50"; } ?>" name="boxheight" id="boxheight" style="background-color:transparent;font-family:monospace;font-size:12px;color:#505050" required/>
- 				<br />
-  			</p>
-  			<p>
-    		<label for="diagram">Diagram : </label>
-       			<input type="text" value="<?php if (isset($_POST['diagram'])) { echo $_POST['diagram']; } else { echo "48"; } ?>" name="diagram" id="diagram" style="background-color:transparent;font-family:monospace;font-size:12px;color:#505050" required/>
-       			<br />
- 			</p>
-  			<p>
-    		<label for="chordsize">Chordsize : </label>
-       			<input type="text" value="<?php if (isset($_POST['chordsize'])) { echo $_POST['chordsize']; } else { echo "22"; } ?>" name="chordsize" id="chordsize" style="background-color:transparent;font-family:monospace;font-size:12px;color:#505050" required/>
- 			<br/>
- 			</p><br/>
-			<label for="message">
-			</label>
-			<p style="text-align: left; margin-left:10px;">Add your code according the appropriate syntax :</p>
-       			<textarea name="message" id="message" rows="20" cols="64" style="background-color:transparent; font-family:monospace;font-size:12px;color:#505050" required>
+  <div>
+    <p style="font-family:monospace;font-size:26px;font-weight:bold;text-align: center;">CHORD CHART</p>
+    <p style="font-family:monospace;font-size:13px;font-weight:normal;text-align: center;">Online application<br/>by <a href="mailto:by.cmsc@gmail.com"><b>Yann Ics</b></a><br/><br/>2015 &ndash; 2025</p>
+  </div>
+  
+  <br/>
+  
+  <div id="toread">Since the Lilypond version 2.23.10, the chord grids have been added and can be managed within the Lilypond context. I decided to leave the online application for the record and I recommend using it locally (<a href="https://yannics.github.io/chordChart" style="color:red">code source</a>) especially if you plan to display the chord diagrams.<br/></div>
+  
+  <?php
+   $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+   ?>
+  <div id="formtext">
+    <form method="post" action="" enctype="multipart/form-data">
+      <p style="text-align: left;">fill in the needed fields in the following form :</p>
+      <p>
+    	<label for="title">Title : </label>
+       	<input type="text" value="<?php if (isset($_POST['title'])) { echo $_POST['title']; } else { echo "Somewhere over the rainbow"; } ?>" name="title" id="title" style="background-color:transparent;width:190px;font-family:monospace;font-size:12px;color:#505050" >
+ 	<br /> 
+      </p>
+      <p>
+       	<label for="subtitle">Subtitle : </label>
+       	<input type="text" value="<?php if (isset($_POST['subtitle'])) { echo $_POST['subtitle']; } ?>" name="subtitle" id="subtitle" style="background-color:transparent;width:190px;font-family:monospace;font-size:12px;color:#505050" >
+ 	<br />
+      </p>
+      <p>
+       	<label for="composer">Composer : </label>
+       	<input type="text" value="<?php if (isset($_POST['composer'])) { echo $_POST['composer']; } else { echo ""; } ?>" name="composer" id="composer" style="background-color:transparent;width:190px;font-family:monospace;font-size:12px;color:#505050" >
+ 	<br />
+      </p>
+      <p>
+       	<label for="comment">Comment : </label>
+       	<input type="text" value="<?php if (isset($_POST['comment'])) { echo $_POST['comment']; } else { echo "[ grille manouche ]"; } ?>" name="comment" id="comment" style="background-color:transparent;width:190px;font-family:monospace;font-size:12px;color:#505050" >
+ 	<br /><img src="img/point.png" alt="" style="height:1px;">
+      </p>
+      <p>
+       	<label for="width">Width : </label>
+       	<input type="text" value="<?php if (isset($_POST['boxwidth'])) { echo $_POST['boxwidth']; } else { echo "100"; } ?>" name="boxwidth" id="boxwidth" style="background-color:transparent;font-family:monospace;font-size:12px;color:#505050" required/>
+ 	<br />
+      </p>
+      <p>
+       	<label for="height">Height : </label>
+       	<input type="text" value="<?php if (isset($_POST['boxheight'])) { echo $_POST['boxheight']; } else { echo "50"; } ?>" name="boxheight" id="boxheight" style="background-color:transparent;font-family:monospace;font-size:12px;color:#505050" required/>
+ 	<br />
+      </p>
+      <p>
+    	<label for="diagram">Diagram : </label>
+       	<input type="text" value="<?php if (isset($_POST['diagram'])) { echo $_POST['diagram']; } else { echo "48"; } ?>" name="diagram" id="diagram" style="background-color:transparent;font-family:monospace;font-size:12px;color:#505050" required/>
+       	<br />
+      </p>
+      <p>
+    	<label for="chordsize">Chordsize : </label>
+       	<input type="text" value="<?php if (isset($_POST['chordsize'])) { echo $_POST['chordsize']; } else { echo "22"; } ?>" name="chordsize" id="chordsize" style="background-color:transparent;font-family:monospace;font-size:12px;color:#505050" required/>
+ 	<br/>
+      </p><br/>
+      <label for="message">
+      </label>
+      <p style="text-align: left; margin-left:10px;">Add your code according the appropriate syntax :</p>
+      <textarea name="message" id="message" rows="20" cols="64" style="background-color:transparent; font-family:monospace;font-size:12px;color:#505050" required>
 <?php
 if (isset($_POST['message']))
 { echo $_POST['message']; }
@@ -94,94 +94,84 @@ echo '|? 1> __<b>A</b> !|
 |? 1> _(<b>AABA</b>)x5 !|';
 }
 ?>
-</textarea>
-    		</p>
-    		<p style="text-align: center;"><input type="submit" name="envoi" value="Display" onmouseover="document.getElementById('display-infobulle1').style.display = 'inline'" onmouseout="document.getElementById('display-infobulle1').style.display = 'none'"></p>
-    		 <span id="display-infobulle1" class="infobulle">Mind that the result could take some time ... so be patient.</span>
-    		<br/><br/>
-    		      <p style="text-align: center;"><input type="submit" name="ccw" value="Save as chordChart"> </p>
-			
-    		<input type="hidden" name="MAX_FILE_SIZE" value="100000">
-      <p style="text-align: left; margin-left:10px;">Or upload a <em>chordChart</em> file (max size 100 ko) :</p>
-      <p style="text-align: center;"><input type="file" name="score" > </p>
-          		<p style="text-align: center;"><input type="submit" name="ccfile" value="Submit" onmouseover="document.getElementById('display-infobulle2').style.display = 'inline'" onmouseout="document.getElementById('display-infobulle2').style.display = 'none'"></p>
-          	<span id="display-infobulle2" class="infobulle">Mind that the result could take some time ... so be patient.</span>
-<br/>
-		</form>
-		
-		<br/><br/>
-		
-		<div style="text-align: left; font-size:11px;">
-		<b>Tutorial</b>: <a href="tuto.html">./chordChart/tuto.html</a><br/>
-		<b>Reference</b>: <a href="https://yannics.github.io">https://yannics.github.io</a><br/>
-		<b>Contact</b>: <a href="mailto:by.cmsc@gmail.com">by.cmsc@gmail.com</a><br/><br/><br/>
-		</div>
-	
-<?php
-$filename = 'busy';
+      </textarea>
+</p>
+<p style="text-align: center;"><input type="submit" name="envoi" value="Display" onmouseover="document.getElementById('display-infobulle1').style.display = 'inline'" onmouseout="document.getElementById('display-infobulle1').style.display = 'none'"></p>
+<span id="display-infobulle1" class="infobulle">Mind that the result could take some time ... so be patient.</span>
+<br/><br/>
+<p style="text-align: center;"><input type="submit" name="ccw" value="Save as chordChart"> </p>
 
-if (file_exists($filename)) {
-       echo '<script language="javascript">';
-       echo 'alert("Server busy : please try later.")';
-       echo '</script>';
-} else {
-   
+<input type="hidden" name="MAX_FILE_SIZE" value="100000">
+<p style="text-align: left; margin-left:10px;">Or upload a <em>chordChart</em> file (max size 100 ko) :</p>
+<p style="text-align: center;"><input type="file" name="score" > </p>
+<p style="text-align: center;"><input type="submit" name="ccfile" value="Submit" onmouseover="document.getElementById('display-infobulle2').style.display = 'inline'" onmouseout="document.getElementById('display-infobulle2').style.display = 'none'"></p>
+<span id="display-infobulle2" class="infobulle">Mind that the result could take some time ... so be patient.</span>
+<br/>
+</form>
+
+<br/>
+
+<div style="text-align: left; font-size:11px;">
+  <b>Tutorial</b>: <a href="tuto.html">./chordChart/tuto.html</a><br/>
+  <b>Reference</b>: <a href="https://yannics.github.io">https://yannics.github.io</a><br/>
+  <b>Contact</b>: <a href="mailto:by.cmsc@gmail.com">by.cmsc@gmail.com</a><br/><br/><br/>
+</div>
+
+<?php
+ $filename = 'busy';
+ 
+ if (file_exists($filename)) {
+ echo '<script language="javascript">';
+ echo 'alert("Server busy : please try later.")';
+ echo '</script>';
+ } else {
+
 if(isset($_POST['ccfile']))
 {
-    $upload_cc = TRUE;
-        if (!empty($_FILES['score']['name'])) {
+$upload_cc = TRUE;
+if (!empty($_FILES['score']['name'])) {
 
-	// never assume the upload succeeded
-	if ($_FILES['score']['error'] !== UPLOAD_ERR_OK) {
-		echo '<script language="javascript">';
-        	echo 'alert("Upload failed with error code '.$_FILES['score']['error'].'")';
-        	echo '</script>';
-   	$upload_cc = FALSE;
-	}
-	else
-	{
-	   $nname = $_FILES['score']['name'];
-       $ext = end((explode(".", $nname)));
-	   if ($ext != "chordChart")
-	   {
-	        echo '<script language="javascript">';
+// never assume the upload succeeded
+if ($_FILES['score']['error'] !== UPLOAD_ERR_OK) {
+echo '<script language="javascript">';
+  echo 'alert("Upload failed with error code '.$_FILES['score']['error'].'")';
+  echo '</script>';
+$upload_cc = FALSE;
+}
+else
+{
+$nname = $_FILES['score']['name'];
+$ext = end((explode(".", $nname)));
+if ($ext != "chordChart")
+{
+echo '<script language="javascript">';
        		echo 'alert("Upload failed : wrong file type.\nAccept only chordChart extension.")';
        		echo '</script>';
-	   $upload_cc = FALSE;
-	   }
-	}
+$upload_cc = FALSE;
+}
+}
 
-	if($upload_cc == TRUE)
-	{
-      $tmp = '___.chordChart';
-      //déplacement du fichier du répertoire temporaire (stocké par défaut) dans le répertoire de destination
-      move_uploaded_file($_FILES['score']['tmp_name'], $tmp);
-      
-      		$testcc=shell_exec('./testCC.sh '.$tmp);
-      		
-      		if ($testcc == 1)
-		{
-			echo '<div id="loadingSpinnerBackground" ></div>';
-			echo '<script>
-	  		<!--
-	  		location.replace("chordChart.php");
-	  		-->
-	  		</script>';
-		}
-		else
-		{
-			 echo '<script language="javascript">';
-      			 echo 'alert("Upload failed : invalid format.\nCheck file contents.")';
-      			 echo '</script>';
-		}
-	}
-    }
-    else
-    {
-	echo '<script language="javascript">';
-      	echo 'alert("Please select a file.")';
-      	echo '</script>';
-    }
+if($upload_cc == TRUE)
+{
+$tmp = '___.chordChart';
+//déplacement du fichier du répertoire temporaire (stocké par défaut) dans le répertoire de destination
+move_uploaded_file($_FILES['score']['tmp_name'], $tmp);
+
+echo '<div id="loadingSpinnerBackground" ></div>';
+echo '<script>
+  <!--
+  location.replace("chordChart.php");
+  -->
+</script>';
+
+}
+}
+else
+{
+echo '<script language="javascript">';
+  echo 'alert("Please select a file.")';
+  echo '</script>';
+}
 }
 elseif(isset($_POST['envoi']) || isset($_POST['ccw']))
 {
@@ -251,12 +241,11 @@ location.replace("chordChart.php");
 }
 }
 ?>
-<br/>
 </div>
-	
-<div class="slide-out-div">
-<a class="handle" href="http://link-for-non-js-users.html"></a>
-<TABLE id="memo">
+
+
+<div>
+<TABLE id="memo"> <caption>Memo</caption>
   <TR><TD> \a </TD><TD><img src="img/a.png" alt="" height=25 width=50></img></TD><TD> \la </TD><TD><img src="img/la.png" alt="" height=25 width=50></img></TD><TD style="text-align:right;font-size:16px;">w</TD><TD style="font-family:'Chord4tab';font-size:26px;">w</TD></TR>
   <TR><TD> \b </TD><TD><img src="img/b.png" alt="" height=25 width=50></img></TD><TD> \lb </TD><TD><img src="img/lb.png" alt="" height=25 width=50></img></TD><TD style="text-align:right;font-size:16px;">W</TD><TD style="font-family:'Chord4tab';font-size:26px;">W</TD></TR>
   <TR><TD> \c </TD><TD><img src="img/c.png" alt="" height=25 width=50></img></TD><TD> \lc </TD><TD><img src="img/lc.png" alt="" height=25 width=50></img></TD><TD style="text-align:right;font-size:16px;">#</TD><TD style="font-family:'Chord4tab';font-size:26px;">#</TD></TR>
@@ -272,6 +261,7 @@ location.replace("chordChart.php");
   <TR><TD> \ff </TD><TD><img src="img/ff.png" alt="" height=25 width=50></img></TD><TD> \rf </TD><TD><img src="img/rf.png" alt="" height=25 width=50></img></TD><TD style="text-align:right;font-size:16px;">j</TD><TD style="font-family:'Chord4tab';font-size:26px;">j</TD></TR>
   <TR><TD> \fg </TD><TD><img src="img/fg.png" alt="" height=25 width=50></img></TD><TD> \rg </TD><TD><img src="img/rg.png" alt="" height=25 width=50></img></TD><TD style="text-align:right;font-size:16px;">k</TD><TD style="font-family:'Chord4tab';font-size:26px;">k</TD></TR>
 </TABLE>
+<br/>
 </div>
 </body>
 </html>

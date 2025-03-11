@@ -12,21 +12,6 @@
 a { text-decoration:none; color:black; } 
 a:hover { text-decoration:underline; } 
 
-.xt { opacity:0; /*display:none;*/ position:fixed; bottom:5px; right:5px; }  
-
-.slide-out-div {
-	width               : auto;
-	height:auto;
-    text-align		    : left;
-	border-radius       : 5px 0px 0px 5px;
-	background-color    : rgba(255,250,250,0.85);
-	margin              : 0px;
-	padding-left        : 10px;
-	padding-right       : 20px;
-	color               : black;
-	border              : 1px solid #E8E8E8; }
-
-
 #formtext { 
 	width               : 470px;
 	height              : auto;
@@ -35,15 +20,28 @@ a:hover { text-decoration:underline; }
 	/* border:1px solid #000; */
 	text-align          : right;
 	font-family         :monospace;
-	font-size           :12px; }
-	
+	font-size           :12px;
+}
+
+#memo {
+    width               : 470px;
+    height              : auto;
+    margin-left         : auto;
+    margin-right        : auto;
+    background-color    : rgba(255,250,250,0.85);
+}
+
+caption {
+    text-align:left;font-size:18px;text-decoration:underline;
+}
+
 #memo td {
 	font-family         :monospace;		
 	text-align          :center; 	
 	vertical-align      :middle;
 	table-layout        :fixed;
-	width               :50px; }
-
+	width               :50px;
+}
 
 .infobulle {
         display             : none;
@@ -52,4 +50,15 @@ a:hover { text-decoration:underline; }
         background-color    : rgba(255,0,0,0.1);
         border-radius       : 3px;
         padding             : 3px 10px;
+}
+
+#toread {
+    font-family         : monospace;
+    font-size           : 9px;
+    color               : red;
+    text-align          : justify;
+    width               : 470px;
+    height              : auto;
+    margin-left         : auto;
+    margin-right        : auto;
 }
